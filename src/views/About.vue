@@ -51,9 +51,15 @@
       login () {
         this.$refs.loginForm.validate(valid => {
           if (valid) {
-            console.log('表单校验通过')
+            this.$notice({
+              title: '温馨提示',
+              content: '校验通过'
+            })
           } else {
-            alert('校验失败')
+            this.$notice({
+              title: '温馨提示',
+              content: '校验失败'
+            })
           }
         })
       }
