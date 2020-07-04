@@ -11,8 +11,11 @@
 
 <script>
     import Schma from 'async-validator';
+    import emitter from '@/mixins/emitter';
     export default {
         inject: ['form'],
+        mixins: [emitter],
+        componentName: 'KFormItem',
         props: {
             label: {
                 type: String,
@@ -32,7 +35,10 @@
             this.$on('validate', () => {
                 this.validate();
             })
-            console.log(this.form, 89)
+            
+            if (this.prop) {
+                this.dispatch('KForm', 'kkb.form.addField', [this])
+            }
         },
         methods: {
             // formitem表单项校验

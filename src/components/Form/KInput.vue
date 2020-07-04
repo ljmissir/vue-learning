@@ -6,7 +6,9 @@
 </template>
 
 <script>
+    import emitter from '@/mixins/emitter';
     export default {
+        mixins: [emitter],
         // inheritAttrs: false可以把attrs继承过来的属性去掉，只保留子组件自身的属性
         inheritAttrs: false,
         props: {
@@ -26,8 +28,10 @@
         methods: {
             onInput (e) {
                 this.$emit('input', e.target.value);
-                // 实时触发校验
-                this.$parent.$emit('validate');
+                // 通过父组件来实时触发校验
+                // this.$parent.$emit('validate');
+                // 降低耦合度
+                this.dispatch('KFormItem', 'validate');
             }
         }
     }
