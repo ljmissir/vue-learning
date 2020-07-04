@@ -1,4 +1,4 @@
-# day-02
+# vue-learning
 
 ## Project setup
 ```
