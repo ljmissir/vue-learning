@@ -12,6 +12,8 @@
         <p>当前时间：{{time}}</p>
         <p k-html='desc'></p>
         <button @click="login">点击事件</button>
+        <p></p>
+        <button @click='submit'>提交</button>
     </div>
 
     <script src="./KVue.js"></script>
@@ -26,6 +28,9 @@
                 login () {
                     console.log('实现事件绑定')
                     alert('实现事件绑定')
+                },
+                submit () {
+                    alert('冬瓜冬瓜我是西瓜')
                 }
             },
         })
