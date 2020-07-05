@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>简单实现MVVM</title>
 </head>
 <body>
-    <div>22777</div>
+    <div id="app"></div>
+    <script>
+        //  对象响应式
+        function defineReactive (obj, key, val) {
+            // val可能是对象
+            observe(val)
+            Object.defineProperty(obj, key, {
+                get () {
+                    console.log('get', val)
+                },
+                set (newVal) {
+                    if (newVal !== val) {
+                        // 值改变，进行update更新
+                        console.log('set', newVal)
+                        observe(newVal)
+                        update()
+                        val = newVal
+                    }
+                }
+            })
+        }
+
+        // 处理响应式数据
+        function observe (obj) {
+            // 判断obj类型，必须为对象
+            if (typeof obj !== 'object' || obj === null) return
+            Object.keys(obj).forEach(key => defineReactive(obj, key, obj[key]))
+        }
+
+        // update方法，执行更新
+        function update () {
+            setInterval(() => {
+                app.innerHTML = new Date().toLocaleTimeString()
+            }, 1000)
+        }
+
+        // 实现set方法
+        function set (obj, key, val) {
+            defineReactive(obj, key, val)
+        }
+
+        const obj = {foo: 'foo', bar: 'bar', baz: {a: 10}}
+        // defineReactive(obj, 'foo', 'foo')
+        observe(obj)
+        obj.foo
+        obj .foo = 'fooooooooo'
+        obj.bar
+        obj.bar = 'bar0000'
+        obj.dong = 'dong'
+        obj.baz
+        set(obj, 'dong', 'dong')
+        obj.dong
+    </script>
 </body>
 </html>

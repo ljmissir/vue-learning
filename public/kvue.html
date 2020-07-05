@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{counter}}</p>
+        <p k-text='counter'></p>
+        <p>当前时间：{{time}}</p>
+        <p k-html='desc'></p>
+        <button @click="login">点击事件</button>
+    </div>
+
+    <script src="./KVue.js"></script>
+    <script>
+        const app = new KVue({
+            data: {
+                counter: 1,
+                time: new Date().toLocaleTimeString(),
+                desc: 'web全栈学习<span style="color: red;">真棒</span>'
+            },
+            methods: {
+                login () {
+                    console.log('实现事件绑定')
+                    alert('实现事件绑定')
+                }
+            },
+        })
+        setInterval(() => {
+            app.time = new Date().toLocaleTimeString()
+        }, 1000)
+    </script>
+</body>
+</html>
