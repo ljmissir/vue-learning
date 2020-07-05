@@ -12,6 +12,7 @@
         <button @click="login">登录</button>
       </k-form-item>
     </k-form>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -52,13 +53,13 @@
         this.$refs.loginForm.validate(valid => {
           if (valid) {
             this.$notice({
-              title: '温馨提示',
-              content: '校验通过'
+              message: '校验通过',
+              type: 'success'
             })
           } else {
             this.$notice({
-              title: '温馨提示',
-              content: '校验失败'
+              message: '校验失败',
+              type: 'error'
             })
           }
         })
