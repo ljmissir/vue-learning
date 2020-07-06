@@ -209,7 +209,7 @@ class Watcher {
     }
 }
 
-// 
+//
 class Dep {
     constructor () {
         this.deps = []
