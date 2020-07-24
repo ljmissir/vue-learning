@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <svg-icon iconClass="wx" style="font-size: 30px; color: green;"/>
     <div>
       <button @click="$store.commit('add', 1)">＋1</button>
       <span>{{$store.state.counter}}</span>
@@ -11,7 +11,6 @@
       <span>{{$store.state.counter}}</span>
     </div>
     <p>double：{{$store.getters.doubleCount}}</p>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
