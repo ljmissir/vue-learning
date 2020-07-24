@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import SvgIcon from '@/components/SvgIcon';
+// import Vue from 'vue';
+// import SvgIcon from '@/components/SvgIcon';
 
 const req = require.context('./svg', false, /\.svg$/);
 
 req.keys().map(req);
 
-Vue.component('SvgIcon', SvgIcon);
+// Vue.component('SvgIcon', SvgIcon);
 
