@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import authorRoutes from './modules';
 
 Vue.use(VueRouter);
 
@@ -22,7 +23,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes
+  routes: [...routes, ...authorRoutes]
 });
 
 export default router;
